@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #800000;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .gallery-container {
+            position: relative;
+            margin-left: 120px;
+            margin-right: 120px;
+            background-color: #800000;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px;
+            flex-grow: 1;
+        }
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            flex-shrink: 0;
+        }
+        .gallery::-webkit-scrollbar {
+            display: none;
+        }
+        .gallery {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .gallery-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(128, 0, 0, 0.8);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-control.left {
+            left: 10px;
+        }
+        .gallery-control.right {
+            right: 10px;
+        }
+        .hobbies-prompt-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .hobbies {
+            flex: 1;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .hobbies h2 {
+            color: #800000;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+        .hobbies ul {
+            list-style: disc;
+            list-style-position: inside;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+        .hobbies ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .currently-playing {
+            margin-top: 20px;
+        }
+        .currently-playing h3 {
+            margin-top: 50px;
+            text-decoration: underline;
+        }
+        .prompt {
+            flex: 1;
+            max-width: 700px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .prompt h2 {
+            color: #800000;
+            margin-bottom: 20px;
+        }
+        .prompt textarea {
+            width: 100%;
+            height: 450px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Technical Portfolio</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="service.html">Service</a>
+        <a href="ai.html">AI</a>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <h1>Gallery</h1>
+        
+        <!-- Photo Gallery with Maroon Background -->
+        <div class="gallery-container">
+            <button class="gallery-control left" onclick="scrollGallery(-1)">&#9664;</button>
+            <div class="gallery">
+                <img src="gallery/IMG_8090.jpg" alt="Photo 1">
+                <img src="gallery/IMG_8383.jpg" alt="Photo 2">
+                <img src="gallery/IMG_0562.jpeg" alt="Photo 3">
+                <img src="gallery/IMG_3025.JPG" alt="Photo 4">
+                <img src="gallery/IMG_7045.jpg" alt="Photo 5">
+                <img src="gallery/IMG_7278.jpeg" alt="Photo 5">
+            </div>
+            <button class="gallery-control right" onclick="scrollGallery(1)">&#9654;</button>
+        </div>
+
+        <!-- Hobbies and Prompt Section -->
+        <div class="hobbies-prompt-container">
+            <!-- Hobbies Section -->
+            <div class="hobbies">
+                <h2>My Hobbies</h2>
+                <ul>
+                    <ul>
+                        <li>Biking</li>
+                        <li>Traveling</li>
+                        <li>Playing tennis</li>
+                        <li>Reading</li>
+                        <li>Creating art</li>
+                    </ul>
+                
+                <!-- Currently Playing Section -->
+                <div class="currently-playing">
+                    <h3>Currently Playing:</h3>
+                    <!-- Embed Spotify Player -->
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5soG9SaS1iizN4TMmpompK?utm_source=generator" width="90%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <p> [ Check out my Spotify <a href="https://open.spotify.com/user/kbhagat-us" target="_blank">here</a> ]</p>
+                </div>
+            </div>
+
+            <!-- Prompt Section -->
+            <div class="prompt">
+                <h2>Prompt Used for Page</h2>
+                <textarea readonly>
+                    Create an HTML webpage that has a navigation bar with 5 links: home, technical portfolio, qualifications, service, and AI.
+                    The links should be centered on the page with a maroon background, and the main content of the website will contain a photo gallery on the top.
+                    Make the photo gallery scroll side to side, and add a maroon squared rectangle as the div's background.
+                    Center the photos and under the gallery section, add a section for hobbies.
+                    On the right side of the hobbies section, add a new section of your choice that would fit well.
+                    Add a "Currently Playing" section within the hobbies section that shows a Spotify song of your choice.
+                    Now create a section for hobbies in the webpage. This section should be visually distinct and include a list of personal hobbies. Use a clean and simple design with appropriate padding and margin. The background color should be white with a box shadow to make it stand out.
+                    Implement a photo gallery with a maroon background that allows horizontal scrolling. Include navigation buttons to scroll left and right through the images. Ensure that the gallery has a smooth scrolling effect and that the images are well-sized and properly aligned.
+                    Further modify the "Currently Playing" section that embeds a Spotify player for a selected track. This section should be integrated into the hobbies section, positioned below the list of hobbies. Ensure that the embedded player is appropriately sized and visually integrated with the rest of the design.
+                    Create a "Prompt Used for Page" section that includes a textarea element. This textarea should display a summary of the prompts used to create the webpage. Make sure the textarea is styled to fit within the design, with proper padding, border, and background color.
+                </textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function scrollGallery(direction) {
+            const gallery = document.querySelector('.gallery');
+            const scrollAmount = direction * 300; // Amount to scroll by
+            gallery.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+</body>
+</html>
